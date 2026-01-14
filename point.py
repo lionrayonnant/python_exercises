@@ -55,20 +55,18 @@ class Triangle:
     def __str__(self):
         return f"{self.a}{self.b}{self.c}"
 
-    def segments(self, as_tuple=False):
+    def segments(self):
         def dist(p,q):
             x = math.sqrt(((q.x - p.x)**2)+((q.y - p.y)**2))
             return x
+
         AB = dist(self.a, self.b)
         BC = dist(self.b, self.c)
         CA = dist(self.c, self.a)
-        if as_tuple:
-            return AB, BC, CA
-        else:
-            return f"{self.a.name}-{self.b.name} : {AB}\n{self.b.name}-{self.c.name} : {BC}\n{self.c.name}-{self.a.name} : {CA}"
+        return AB, BC, CA
     
     def aire(self):
-        AB, BC, CA = self.segments(as_tuple=True)
+        AB, BC, CA = self.segments()
         # utilisation de la formule de Héron
         p = (AB + BC + CA)/2 # demi périmètre en cm
         A = (math.sqrt(p*(AB)*(BC)*(CA))) # aire en cm^2
