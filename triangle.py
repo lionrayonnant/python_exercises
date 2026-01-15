@@ -81,3 +81,6 @@ print(f"Segments du triangle :\n")
 print(tr.segments())
 print("Aire du triangle :\n")
 print(tr.aire())
+
+
+
